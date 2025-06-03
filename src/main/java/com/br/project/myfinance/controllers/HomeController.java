@@ -1,4 +1,4 @@
-package com.exemplo.demo.controller;
+package com.br.project.myfinance.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
