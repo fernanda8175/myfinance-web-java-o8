@@ -1,0 +1,19 @@
+# Diretórios comuns
+/target/
+/out/
+*.class
+
+# IDEs
+/.idea/
+/*.iml
+*.log
+*.swp
+*.DS_Store
+
+# Maven e gradle
+/.mvn/
+/build/
+/.gradle
+
+# Sistema
+Thumbs.db
