@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Filtro de Relatório</title>
+</head>
+<body>
+<h1>Filtro de Relatório</h1>
+
+<form th:action="@{/relatorio/filtrar}" method="get">
+  <label for="dataInicio">Data Início:</label>
+  <input type="date" id="dataInicio" name="dataInicio" required>
+
+  <label for="dataFim">Data Fim:</label>
+  <input type="date" id="dataFim" name="dataFim" required>
+
+  <button type="submit">Filtrar</button>
+</form>
+
+<div th:if="${mensagem}">
+  <p th:text="${mensagem}"></p>
+</div>
+</body>
+</html>

@@ -1,13 +1,25 @@
+DROP TABLE IF EXISTS mf_plano_conta;
+DROP TABLE IF EXISTS mf_transacao;
+
 CREATE TABLE mf_plano_conta (
-    id SERIAL PRIMARY KEY,
+    codigo BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     descricao VARCHAR(255) NOT NULL,
-    tipo SMALLINT NOT NULL default(0)
+    tipo_movimentacao INTEGER NOT NULL
 );
 
-ALTER TABLE mf_plano_conta add constraint const_tipo check (tipo in (1,0));
+CREATE TABLE mf_transacao (
+    codigo BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    historico VARCHAR(255) NOT NULL,
+    data_hora TIMESTAMP NOT NULL,
+    valor NUMERIC(10,2) NOT NULL,
+    plano_conta_codigo BIGINT NOT NULL,
+    CONSTRAINT fk_plano_conta
+        FOREIGN KEY (plano_conta_codigo)
+        REFERENCES mf_plano_conta(codigo)
+);
 
 
-INSERT INTO mf_plano_conta (descricao, tipo) VALUES
+INSERT INTO mf_plano_conta (descricao, tipo_movimentacao) VALUES
 ('Salário', 1),
 ('Freelance', 1),
 ('Investimentos', 1),

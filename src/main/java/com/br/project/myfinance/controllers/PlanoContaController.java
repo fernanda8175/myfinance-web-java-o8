@@ -13,7 +13,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/planosContas")
-public class PlanoController {
+public class PlanoContaController {
 
     @Autowired
     private PlanoContaService planoContaService;
