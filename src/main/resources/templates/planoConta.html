@@ -23,7 +23,7 @@
                 <th scope="col">Código</th>
                 <th scope="col">Descrição</th>
                 <th scope="col">Tipo Movimentação</th>
-                <th scope="col">Alterar/Excluir</th>
+                <th scope="col">Editar/Remover</th>
             </tr>
             </thead>
             <tbody>
@@ -32,7 +32,8 @@
                 <td th:text="${plano.descricao}"></td>
                 <td th:text="${plano.tipoMovimentacao}"></td>
                 <td>
-                    <button th:onclick="'deletarPlanoConta(' + ${plano.codigo} + ')'" class="btn btn-danger btn-sm">
+                    <a th:href="@{'/planosContas/editar/' + ${plano.codigo}}" class="btn btn-warning btn-sm">Editar</a>
+                    <button th:onclick="'deletarPlanoConta(' + ${plano.codigo} + ')'" class="btn btn-danger btn-sm">Excluir</button>
                 </td>
             </tr>
             </tbody>

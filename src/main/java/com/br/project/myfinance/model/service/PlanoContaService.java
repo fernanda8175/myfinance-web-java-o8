@@ -18,8 +18,12 @@ import java.util.Optional;
             return planoContaRepository.findAll();
         }
 
-    public Optional<PlanoConta> listarPlanoConta(Long codigo) {
-        return planoContaRepository.findById(codigo);
+    public PlanoConta listarPlanoConta(Long codigo) {
+        //valida se existe antes de retornar
+        if (!planoContaRepository.existsById(codigo)) {
+            throw new RuntimeException("Plano Conta não encontrado");
+        }
+        return planoContaRepository.findById(codigo).get();
     }
     public PlanoConta armazenaPlanoConta(PlanoConta planoConta) {
         return planoContaRepository.save(planoConta);
@@ -27,6 +31,18 @@ import java.util.Optional;
     }
 
     public void deletarPlanoConta(Long codigo) {
+        //valida se existe antes de excluir
+        if (!planoContaRepository.existsById(codigo)) {
+            throw new RuntimeException("Plano Conta não encontrado para exclusão");
+        }
         planoContaRepository.deleteById(codigo);
+    }
+
+    public void atualizarPlanoConta(PlanoConta planoConta) {
+        //valida se existe antes de salvar
+        if (!planoContaRepository.existsById(planoConta.getCodigo())) {
+            throw new RuntimeException("Plano Conta não encontrado para atualização");
+        }
+        planoContaRepository.save(planoConta);
     }
 }

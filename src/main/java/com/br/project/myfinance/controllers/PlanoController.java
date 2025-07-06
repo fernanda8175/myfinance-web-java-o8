@@ -24,11 +24,20 @@ public class PlanoController {
         return "planoConta"; // Nome da view a ser renderizada (planoConta.html)
     }
 
-    @GetMapping("/{codigo}")
-    public String listarTodos(Model model, @PathVariable Long codigo)  {
-        var planoConta = planoContaService.listarPlanoConta(codigo);
-        model.addAttribute("mensagem", planoConta);
-        return "planoConta";
+    // GET - Exibir formulário de edição preenchido
+    @GetMapping("/editar/{codigo}")
+    public String exibirFormularioEdicao(@PathVariable Long codigo, Model model) {
+        PlanoConta planoConta = planoContaService.listarPlanoConta(codigo);
+        model.addAttribute("planoConta", planoConta);
+        return "editarPlanoConta"; // nova view
+    }
+
+    // POST - Atualizar plano conta
+    @PostMapping("/{codigo}")
+    public String atualizarPlanoConta(@PathVariable Long codigo, @ModelAttribute PlanoConta planoConta) {
+        planoConta.setCodigo(codigo);
+        planoContaService.atualizarPlanoConta(planoConta);
+        return "redirect:/planosContas";
     }
 
     // GET - exibir formulário
