@@ -25,4 +25,8 @@ import java.util.Optional;
         return planoContaRepository.save(planoConta);
 
     }
+
+    public void deletarPlanoConta(Long codigo) {
+        planoContaRepository.deleteById(codigo);
+    }
 }

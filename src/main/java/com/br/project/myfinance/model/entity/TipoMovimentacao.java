@@ -1,7 +1,7 @@
 package com.br.project.myfinance.model.entity;
 
 public enum TipoMovimentacao {
-    DESPESA(0), RECEITA(1);
+    Despesa(0), Receita(1);
 
     private final int valor;
 
@@ -14,6 +14,6 @@ public enum TipoMovimentacao {
     }
 
     public static TipoMovimentacao fromValor(int valor) {
-        return valor == 1 ? RECEITA : DESPESA;
+        return valor == 1 ? Receita : Despesa;
     }
 }

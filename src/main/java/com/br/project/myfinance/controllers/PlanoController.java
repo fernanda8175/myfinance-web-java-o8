@@ -4,6 +4,7 @@ import com.br.project.myfinance.model.domain.PlanoConta;
 import com.br.project.myfinance.model.service.PlanoContaService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
@@ -42,10 +43,10 @@ public class PlanoController {
         return "redirect:/planosContas";
     }
 
-//    @DeleteMapping
-//    public String excluirPlanoConta(@ModelAttribute PlanoConta planoConta) {
-//        planoContaRepository.armazenaPlanoConta(planoConta);
-//        return "redirect:/planosContas";
-//    }
+    @DeleteMapping("/{codigo}")
+    public ResponseEntity<Void> excluirPlanoConta(@PathVariable Long codigo) {
+        planoContaService.deletarPlanoConta(codigo);
+        return ResponseEntity.noContent().build(); // 204 No Content
+    }
 
 }
