@@ -12,7 +12,7 @@
 <div class="container py-5">
     <h2 class="text-primary mb-4">Editar Plano de Conta</h2>
 
-    <form th:action="@{'/planosContas/' + ${planoConta.codigo}}" th:object="${planoConta}" method="post">
+    <form th:action="@{'/planosContas/' + ${planoConta.codigo}}" th:object="${planoConta}" method="post" class="row g-3">
         <div class="col-md-6">
             <label for="descricao" class="form-label">Descrição</label>
             <input type="text" th:field="*{descricao}" class="form-control" id="descricao" required>
@@ -21,8 +21,8 @@
         <div class="col-md-6">
             <label for="tipoMovimentacao" class="form-label">Tipo de Movimentação</label>
             <select th:field="*{tipoMovimentacao}" class="form-select" id="tipoMovimentacao" required>
-                <option value="Receita" th:selected="${planoConta.tipoMovimentacao == 'Receita'}">Receita</option>
-                <option value="Despesa" th:selected="${planoConta.tipoMovimentacao == 'Despesa'}">Despesa</option>
+                <option value="Receita">Receita</option>
+                <option value="Despesa">Despesa</option>
             </select>
         </div>
 
