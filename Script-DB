@@ -1,0 +1,25 @@
+CREATE TABLE mf_plano_conta (
+    id SERIAL PRIMARY KEY,
+    descricao VARCHAR(255) NOT NULL,
+    tipo SMALLINT NOT NULL default(0)
+);
+
+ALTER TABLE mf_plano_conta add constraint const_tipo check (tipo in (1,0));
+
+
+INSERT INTO mf_plano_conta (descricao, tipo) VALUES
+('Salário', 1),
+('Freelance', 1),
+('Investimentos', 1),
+('Aluguel', 0),
+('Energia elétrica', 0),
+('Água', 0),
+('Internet', 0),
+('Supermercado', 0),
+('Transporte', 0),
+('Lazer', 0),
+('Educação', 0),
+('Consultoria PJ', 1),
+('Mensalidade da academia', 0),
+('Manutenção do carro', 0),
+('Lucro de vendas', 1);
