@@ -106,13 +106,14 @@ Criar uma aplicação web para que famílias possam **registrar receitas e despe
 - **Frontend:** Bootstrap 5 (CDN)
 
 ## ️ **Estrutura**
+```
 com.br.project.myfinance
 ├── controllers
 ├── model
 │ ├── entity
 │ └── service
 └── repository
-
+```
 
 ---
 
@@ -139,11 +140,6 @@ cd myfinance
 2. **Suba o banco de dados PostgreSQL via Docker**
 ```bash
 docker run --name postgres-myfinance -e POSTGRES_PASSWORD=senhaForte123 -e POSTGRES_USER=postgre_user -e POSTGRES_DB=myFinanceDatabase -p 5432:5432 -d postgres
-```
-
-2. **Suba o banco de dados PostgreSQL via Docker**
-```bash
-docker run --name postgres-myfinance -e POSTGRES_PASSWORD=suasenha -p 5432:5432 -d postgres
 ```
 
 3. **Crie o banco e depois execute os scripts em Scripts-DB.sql**
@@ -178,10 +174,15 @@ http://localhost:8080
 ## Funcionalidades Implementadas
 
 ✔️ Cadastro de Planos de Conta
+
 ✔️ Registro de Transações (Receitas e Despesas)
+
 ✔️ Edição de Transações
+
 ✔️ Relatório de Transações por Período
-✔️ Gráfico de pizza Receitas vs Despesas
+
+✔️ Gráfico de pizza Receitas vs Despesas por Período
+
 ✔️ Layout responsivo (Bootstrap 5)
 
 ## Melhorias Futuras
