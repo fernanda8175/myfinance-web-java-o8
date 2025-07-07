@@ -54,9 +54,12 @@ public class RelatorioController {
                 .map(Transacao::getValor)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
 
+
         model.addAttribute("transacoes", transacoes);
         model.addAttribute("totalReceitas", totalReceitas);
         model.addAttribute("totalDespesas", totalDespesas);
+        model.addAttribute("dataInicio", dataInicio);
+        model.addAttribute("dataFim", dataFim);
 
         return "relatorioResultado";
     }
